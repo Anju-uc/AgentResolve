@@ -68,6 +68,7 @@ html, body, [class*="css"] { font-family:'Plus Jakarta Sans',sans-serif !importa
 .block-container { max-width:1440px; padding-top:2.6rem !important; padding-bottom:4rem; }
 [data-testid="stHeader"] { background:rgba(7,9,14,.96) !important; z-index:1000 !important; }
 [data-testid="stDecoration"] { display:none !important; }
+.stDeployButton, [data-testid="stDeployButton"], [data-testid="stToolbarActions"], div.stDeployButton, div.stDeployButton * { display:none !important; visibility:hidden !important; 
 [data-testid="stToolbar"] { z-index:1100 !important; }
 .ar-topbar { margin-top:.15rem; margin-bottom:1rem; padding:.6rem 0 .85rem; border-bottom:1px solid #141b27; }
 section[data-testid="stSidebar"] { background:var(--sidebar)!important; border-right:1px solid var(--border)!important; }
