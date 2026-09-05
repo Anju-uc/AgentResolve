@@ -647,8 +647,9 @@ def render_case(txn: Transaction) -> None:
         render_score_meter(score, breakdown)
     with right:
         pscore = getattr(fault_obj, "score", None) if fault_obj else None
+        pscore_badge = f"<span class='badge badge-red'><span class='dot'></span>Attribution Score · {pscore}/100</span>" if pscore is not None else ""
         st.markdown(
-            f"<div class='ar-card'><div class='ar-label'>Forensic Finding</div><div style='font-size:1.3rem;font-weight:800;margin:.25rem 0 .45rem;'>{esc(incident)}</div><div class='small-note'>{esc(forensic_summary(txn, analysis))}</div><div style='margin-top:.75rem;display:flex;gap:.45rem;flex-wrap:wrap;'><span class='badge badge-cyan'><span class='dot'></span>Attribution · {esc(fault)}</span><span class='badge badge-amber'><span class='dot'></span>Preventability · {esc(prevent)}</span><span class='badge badge-purple'><span class='dot'></span>Evidence · {esc(status)}</span>{f"<span class='badge badge-red'><span class='dot'></span>Attribution Score · {pscore}/100</span>" if pscore is not None else ''}</div></div>",
+            f"<div class='ar-card'><div class='ar-label'>Forensic Finding</div><div style='font-size:1.3rem;font-weight:800;margin:.25rem 0 .45rem;'>{esc(incident)}</div><div class='small-note'>{esc(forensic_summary(txn, analysis))}</div><div style='margin-top:.75rem;display:flex;gap:.45rem;flex-wrap:wrap;'><span class='badge badge-cyan'><span class='dot'></span>Attribution · {esc(fault)}</span><span class='badge badge-amber'><span class='dot'></span>Preventability · {esc(prevent)}</span><span class='badge badge-purple'><span class='dot'></span>Evidence · {esc(status)}</span>{pscore_badge}</div></div>",
             unsafe_allow_html=True,
         )
 

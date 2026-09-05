@@ -153,13 +153,6 @@ Recorded evidence can contain information such as:
 - Timestamp
 - Content hash
 - Parent hash
-- Integrity status
-
-Integrity can be represented as:
-
-- `VERIFIED`
-- `UNVERIFIED`
-- `INVALID`
 
 This allows investigators to distinguish between evidence that is structurally supported and evidence whose integrity cannot be established.
 

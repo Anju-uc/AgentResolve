@@ -1,4 +1,4 @@
-# AgentResolve v2.3.0 — Architecture
+# AgentResolve — Architecture
 
 AgentResolve is organized around one evidence chain:
 
