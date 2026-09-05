@@ -1,6 +1,7 @@
 # ◈ AgentResolve — AI Transaction Forensics
 
 > **The agent makes the transaction. AgentResolve investigates the transaction.**
+**Built for the Razorpay AI Buildathon 2026 · AI Risk Manager Track**
 
 AgentResolve is an **evidence-first transaction-forensics platform for AI-agent commerce**.
 
