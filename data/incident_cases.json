@@ -1,0 +1,142 @@
+[
+  {
+    "transaction_id": "INC_UNAUTHORIZED_001",
+    "timestamp": "2026-09-03T09:00:00Z",
+    "user_request": {"raw_text": "Buy a smartphone.", "timestamp": "2026-09-03T08:55:00Z", "explicit_constraints": {}},
+    "agent_interpretation": {"parsed_constraints": {}, "accessed_constraint_keys": []},
+    "merchant_snapshot": {"item_id": "PHN-001", "title": "Smartphone", "seller": "StoreA", "price": 700},
+    "agent_decision": {"selected_item_id": "PHN-001", "purchased_price": 700, "purchased_seller": "StoreA"},
+    "dispute": {"disputed_field": "authorization", "user_claim": "I never authorized this purchase.", "dispute_timestamp": "2026-09-03T11:00:00Z"},
+    "lifecycle": {"authorization": {"user_authorized": false, "initiated_by_agent": true, "consent_recorded": false, "timestamp": "2026-09-03T08:59:00Z"}}
+  },
+  {
+    "transaction_id": "INC_OVERSEND_001",
+    "timestamp": "2026-09-03T09:10:00Z",
+    "user_request": {"raw_text": "Buy a phone up to ₹50000.", "timestamp": "2026-09-03T09:00:00Z", "explicit_constraints": {"price_usd": 595, "price_usd_operator": "at most"}},
+    "agent_interpretation": {"parsed_constraints": {"price_usd": 595, "price_usd_operator": "at most"}, "accessed_constraint_keys": ["price_usd"]},
+    "merchant_snapshot": {"item_id": "PHN-002", "title": "Premium Phone", "seller": "StoreB", "price": 850, "price_at_checkout": 850},
+    "agent_decision": {"selected_item_id": "PHN-002", "purchased_price": 850, "purchased_seller": "StoreB", "validation_steps_performed": ["price"]},
+    "dispute": {"disputed_field": "price_usd", "user_claim": "The agent exceeded my authorized spending limit.", "dispute_timestamp": "2026-09-03T11:10:00Z"},
+    "lifecycle": {"authorization": {"user_authorized": true, "initiated_by_agent": true, "authorization_limit": 595, "authorized_amount": 850, "currency": "USD", "final_cart_approved": true}}
+  },
+  {
+    "transaction_id": "INC_WRONG_MERCHANT_001",
+    "timestamp": "2026-09-03T09:20:00Z",
+    "user_request": {"raw_text": "Buy from Amazon.", "timestamp": "2026-09-03T09:05:00Z", "explicit_constraints": {"seller": "Amazon", "seller_operator": "exactly"}},
+    "agent_interpretation": {"parsed_constraints": {"seller": "Amazon", "seller_operator": "exactly"}, "accessed_constraint_keys": ["seller"]},
+    "merchant_snapshot": {"item_id": "PHN-003", "title": "Phone", "seller": "Amazon", "seller_at_checkout": "OtherSeller", "price": 600, "price_at_checkout": 600},
+    "agent_decision": {"selected_item_id": "PHN-003", "purchased_price": 600, "purchased_seller": "OtherSeller", "validation_steps_performed": ["seller"]},
+    "dispute": {"disputed_field": "seller", "user_claim": "The order was placed with the wrong merchant.", "dispute_timestamp": "2026-09-03T11:20:00Z"}
+  },
+  {
+    "transaction_id": "INC_WRONG_ITEM_001",
+    "timestamp": "2026-09-03T09:30:00Z",
+    "user_request": {"raw_text": "Buy item ITEM-A.", "timestamp": "2026-09-03T09:15:00Z", "explicit_constraints": {}},
+    "agent_interpretation": {"parsed_constraints": {}, "accessed_constraint_keys": []},
+    "merchant_snapshot": {"item_id": "ITEM-A", "title": "Requested Item", "seller": "StoreC", "price": 400},
+    "agent_decision": {"selected_item_id": "ITEM-A", "purchased_price": 400, "purchased_seller": "StoreC"},
+    "dispute": {"disputed_field": "item_id", "user_claim": "A different item was delivered.", "dispute_timestamp": "2026-09-03T11:30:00Z"},
+    "lifecycle": {"fulfillment": {"delivered": true, "actual_item_id": "ITEM-B", "expected_variant": "256GB", "actual_variant": "128GB"}}
+  },
+  {
+    "transaction_id": "INC_NON_DELIVERY_001",
+    "timestamp": "2026-09-03T09:40:00Z",
+    "user_request": {"raw_text": "Buy my order.", "timestamp": "2026-09-03T09:20:00Z", "explicit_constraints": {}},
+    "agent_interpretation": {"parsed_constraints": {}, "accessed_constraint_keys": []},
+    "merchant_snapshot": {"item_id": "ORD-001", "title": "Ordered Item", "seller": "StoreD", "price": 300},
+    "agent_decision": {"selected_item_id": "ORD-001", "purchased_price": 300, "purchased_seller": "StoreD"},
+    "dispute": {"disputed_field": "delivery", "user_claim": "I paid but the order was never shipped.", "dispute_timestamp": "2026-09-04T11:40:00Z"},
+    "lifecycle": {"payment": {"status": "CAPTURED", "captured_amount": 300}, "fulfillment": {"delivered": false, "shipped": false, "shipment_status": "NOT_SHIPPED", "responsible_party": "MERCHANT"}}
+  },
+  {
+    "transaction_id": "INC_DEFECT_001",
+    "timestamp": "2026-09-03T09:50:00Z",
+    "user_request": {"raw_text": "Buy a camera.", "timestamp": "2026-09-03T09:30:00Z", "explicit_constraints": {}},
+    "agent_interpretation": {"parsed_constraints": {}, "accessed_constraint_keys": []},
+    "merchant_snapshot": {"item_id": "CAM-001", "title": "Camera", "seller": "StoreE", "price": 900},
+    "agent_decision": {"selected_item_id": "CAM-001", "purchased_price": 900, "purchased_seller": "StoreE"},
+    "dispute": {"disputed_field": "condition", "user_claim": "The correct camera arrived defective.", "dispute_timestamp": "2026-09-03T13:00:00Z"},
+    "lifecycle": {"fulfillment": {"delivered": true, "defect_reported": true, "condition_at_delivery": "DEFECTIVE", "defect_description": "Camera will not power on."}}
+  },
+  {
+    "transaction_id": "INC_REFUND_001",
+    "timestamp": "2026-09-03T10:00:00Z",
+    "user_request": {"raw_text": "Buy headphones.", "timestamp": "2026-09-03T09:35:00Z", "explicit_constraints": {}},
+    "agent_interpretation": {"parsed_constraints": {}, "accessed_constraint_keys": []},
+    "merchant_snapshot": {"item_id": "AUD-001", "title": "Headphones", "seller": "StoreF", "price": 200},
+    "agent_decision": {"selected_item_id": "AUD-001", "purchased_price": 200, "purchased_seller": "StoreF"},
+    "dispute": {"disputed_field": "refund", "user_claim": "The merchant accepted the return but the refund never arrived.", "dispute_timestamp": "2026-09-05T10:00:00Z"},
+    "lifecycle": {"refund": {"return_requested": true, "return_accepted": true, "refund_expected": 200, "refund_received": 0, "refund_status": "PENDING", "currency": "USD"}}
+  },
+  {
+    "transaction_id": "INC_PAYMENT_001",
+    "timestamp": "2026-09-03T10:10:00Z",
+    "user_request": {"raw_text": "Buy the item.", "timestamp": "2026-09-03T09:45:00Z", "explicit_constraints": {}},
+    "agent_interpretation": {"parsed_constraints": {}, "accessed_constraint_keys": []},
+    "merchant_snapshot": {"item_id": "ORD-002", "title": "Item", "seller": "StoreG", "price": 250},
+    "agent_decision": {"selected_item_id": "ORD-002", "purchased_price": 250, "purchased_seller": "StoreG"},
+    "dispute": {"disputed_field": "payment", "user_claim": "The payment timed out and the final state is unclear.", "dispute_timestamp": "2026-09-03T10:30:00Z"},
+    "lifecycle": {"payment": {"status": "TIMEOUT", "payment_attempt_id": "PAY-001", "error_code": "GATEWAY_TIMEOUT"}}
+  },
+  {
+    "transaction_id": "INC_AUTH_AMBIGUITY_001",
+    "timestamp": "2026-09-03T10:20:00Z",
+    "user_request": {"raw_text": "Find a suitable laptop.", "timestamp": "2026-09-03T09:50:00Z", "explicit_constraints": {}},
+    "agent_interpretation": {"parsed_constraints": {}, "accessed_constraint_keys": []},
+    "merchant_snapshot": {"item_id": "LAP-001", "title": "Laptop", "seller": "StoreH", "price": 800},
+    "agent_decision": {"selected_item_id": "LAP-001", "purchased_price": 800, "purchased_seller": "StoreH"},
+    "dispute": {"disputed_field": "authorization", "user_claim": "I never approved the final cart.", "dispute_timestamp": "2026-09-03T10:45:00Z"},
+    "lifecycle": {"authorization": {"user_authorized": null, "consent_recorded": null, "final_cart_approved": false, "initiated_by_agent": true}}
+  },
+  {
+    "transaction_id": "INC_INVENTORY_001",
+    "timestamp": "2026-09-03T10:30:00Z",
+    "user_request": {"raw_text": "Buy the available laptop.", "timestamp": "2026-09-03T10:00:00Z", "explicit_constraints": {}},
+    "agent_interpretation": {"parsed_constraints": {}, "accessed_constraint_keys": []},
+    "merchant_snapshot": {"item_id": "LAP-002", "title": "Laptop", "seller": "StoreI", "price": 700},
+    "agent_decision": {"selected_item_id": "LAP-002", "purchased_price": 700, "purchased_seller": "StoreI"},
+    "dispute": {"disputed_field": "inventory", "user_claim": "The item went out of stock between selection and checkout.", "dispute_timestamp": "2026-09-03T10:50:00Z"},
+    "lifecycle": {"inventory": {"available_at_selection": true, "available_at_checkout": false, "recorded_change_reason": "Inventory depleted"}}
+  },
+  {
+    "transaction_id": "INC_FEE_001",
+    "timestamp": "2026-09-03T10:40:00Z",
+    "user_request": {"raw_text": "Buy the item for $100.", "timestamp": "2026-09-03T10:05:00Z", "explicit_constraints": {"price_usd": 100, "price_usd_operator": "at most"}},
+    "agent_interpretation": {"parsed_constraints": {"price_usd": 100, "price_usd_operator": "at most"}, "accessed_constraint_keys": ["price_usd"]},
+    "merchant_snapshot": {"item_id": "FEE-001", "title": "Item", "seller": "StoreJ", "price": 100, "price_at_checkout": 115},
+    "agent_decision": {"selected_item_id": "FEE-001", "purchased_price": 115, "purchased_seller": "StoreJ", "validation_steps_performed": ["price"]},
+    "dispute": {"disputed_field": "price_usd", "user_claim": "Unexpected fees were added at checkout.", "dispute_timestamp": "2026-09-03T11:00:00Z"},
+    "lifecycle": {"commercial": {"listing_subtotal": 100, "checkout_subtotal": 100, "tax_amount": 5, "fee_amount": 10, "total_amount": 115, "currency": "USD", "disclosed_fees_before_authorization": false}}
+  },
+  {
+    "transaction_id": "INC_PROMO_001",
+    "timestamp": "2026-09-03T10:50:00Z",
+    "user_request": {"raw_text": "Buy the item using SAVE20.", "timestamp": "2026-09-03T10:15:00Z", "explicit_constraints": {}},
+    "agent_interpretation": {"parsed_constraints": {}, "accessed_constraint_keys": []},
+    "merchant_snapshot": {"item_id": "PROMO-001", "title": "Item", "seller": "StoreK", "price": 100},
+    "agent_decision": {"selected_item_id": "PROMO-001", "purchased_price": 100, "purchased_seller": "StoreK"},
+    "dispute": {"disputed_field": "promotion", "user_claim": "The promised coupon discount was not applied.", "dispute_timestamp": "2026-09-03T11:15:00Z"},
+    "lifecycle": {"commercial": {"promotion_code": "SAVE20", "promotion_expected_discount": 20, "promotion_applied_discount": 0, "promotion_status": "REJECTED", "currency": "USD"}}
+  },
+  {
+    "transaction_id": "INC_DUPLICATE_001",
+    "timestamp": "2026-09-03T11:00:00Z",
+    "user_request": {"raw_text": "Buy the item.", "timestamp": "2026-09-03T10:25:00Z", "explicit_constraints": {}},
+    "agent_interpretation": {"parsed_constraints": {}, "accessed_constraint_keys": []},
+    "merchant_snapshot": {"item_id": "DUP-001", "title": "Item", "seller": "StoreL", "price": 150},
+    "agent_decision": {"selected_item_id": "DUP-001", "purchased_price": 150, "purchased_seller": "StoreL"},
+    "dispute": {"disputed_field": "payment", "user_claim": "The same order was charged twice.", "dispute_timestamp": "2026-09-03T11:30:00Z"},
+    "duplicate_charge": true,
+    "lifecycle": {"payment": {"status": "CAPTURED", "captured_amount": 150, "duplicate_detected": true}}
+  },
+  {
+    "transaction_id": "INC_INTEGRATION_001",
+    "timestamp": "2026-09-03T11:10:00Z",
+    "user_request": {"raw_text": "Order item ITEM-X.", "timestamp": "2026-09-03T10:35:00Z", "explicit_constraints": {}},
+    "agent_interpretation": {"parsed_constraints": {}, "accessed_constraint_keys": []},
+    "merchant_snapshot": {"item_id": "ITEM-Y", "title": "Wrong recorded item", "seller": "StoreM", "price": 500},
+    "agent_decision": {"selected_item_id": "ITEM-X", "purchased_price": 500, "purchased_seller": "StoreM"},
+    "dispute": {"disputed_field": "item_id", "user_claim": "The agent sent the right item ID but the merchant recorded another item.", "dispute_timestamp": "2026-09-03T11:45:00Z"},
+    "lifecycle": {"integration": {"agent_order_item_id": "ITEM-X", "merchant_recorded_item_id": "ITEM-Y", "mismatch_detected": true}}
+  }
+]

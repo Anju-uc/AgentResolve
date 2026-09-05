@@ -1,0 +1,577 @@
+[
+  {
+    "transaction_id": "TXN_021",
+    "timestamp": "2026-08-10T09:50:00Z",
+    "user_request": {
+      "raw_text": "Buy a 32-inch monitor with at least 144Hz refresh rate.",
+      "timestamp": "2026-08-10T09:50:00Z",
+      "explicit_constraints": {}
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {},
+      "accessed_constraint_keys": []
+    },
+    "merchant_snapshot": {
+      "item_id": "MON_021",
+      "title": "32-inch Gaming Monitor - 144Hz - Black",
+      "seller": "GameVision",
+      "seller_at_checkout": "GameVision",
+      "price": 329.0,
+      "price_at_checkout": 329.0,
+      "specs": {
+        "screen_size": 32,
+        "refresh_rate": "144Hz",
+        "color": "Black"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "MON_021",
+      "purchased_price": 329.0,
+      "purchased_seller": "GameVision",
+      "validation_steps_performed": [
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "color",
+      "user_claim": "I wanted a White monitor, but color was not part of the recorded request.",
+      "dispute_timestamp": "2026-08-11T12:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "USER_AMBIGUITY",
+      "contributing_factors": [],
+      "preventability": "N/A"
+    }
+  },
+  {
+    "transaction_id": "TXN_022",
+    "timestamp": "2026-08-10T10:45:00Z",
+    "user_request": {
+      "raw_text": "Order a workstation laptop with minimum 32GB RAM and at most $2000.",
+      "timestamp": "2026-08-10T10:45:00Z",
+      "explicit_constraints": {
+        "ram_gb": 32.0,
+        "ram_gb_operator": "minimum",
+        "price_usd": 2000.0,
+        "price_usd_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "ram_gb": 32.0,
+        "ram_gb_operator": "minimum",
+        "price_usd": 2000.0,
+        "price_usd_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "ram_gb",
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "WORK_022",
+      "title": "Mobile Workstation 16GB / 1TB",
+      "seller": "ProCompute",
+      "seller_at_checkout": "ProCompute",
+      "price": 1899.0,
+      "price_at_checkout": 1899.0,
+      "ram_gb": 16.0,
+      "ram_gb_actual": 16.0,
+      "storage_gb": 1024,
+      "storage_gb_actual": 1024,
+      "specs": {
+        "gpu": "RTX A1000",
+        "screen": "16 inch"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "WORK_022",
+      "purchased_price": 1899.0,
+      "purchased_ram_gb": 16.0,
+      "purchased_seller": "ProCompute",
+      "validation_steps_performed": [
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "ram_gb",
+      "user_claim": "The final price was acceptable, but the laptop only had 16GB instead of the required 32GB.",
+      "dispute_timestamp": "2026-08-11T14:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "AGENT_MISJUDGMENT",
+      "contributing_factors": [],
+      "preventability": "HIGH"
+    }
+  },
+  {
+    "transaction_id": "TXN_023",
+    "timestamp": "2026-08-10T11:50:00Z",
+    "user_request": {
+      "raw_text": "Buy a compact coffee machine for at most $500.",
+      "timestamp": "2026-08-10T11:50:00Z",
+      "explicit_constraints": {
+        "price_usd": 500.0,
+        "price_usd_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "price_usd": 500.0,
+        "price_usd_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "COF_023",
+      "title": "Compact Bean-to-Cup Coffee Machine",
+      "seller": "KitchenWorld",
+      "seller_at_checkout": "KitchenWorld",
+      "price": 449.0,
+      "price_at_checkout": 479.0,
+      "delivery_days": 2,
+      "delivery_days_actual": 2,
+      "specs": {
+        "grinder": "steel",
+        "milk_system": "automatic"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "COF_023",
+      "purchased_price": 479.0,
+      "purchased_seller": "KitchenWorld",
+      "purchased_delivery_days": 2,
+      "validation_steps_performed": [
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "price",
+      "user_claim": "Checkout price changed from $449 to $479, though it remained below the recorded $500 ceiling.",
+      "dispute_timestamp": "2026-08-11T15:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "MERCHANT_DATA_ERROR",
+      "contributing_factors": [],
+      "preventability": "HIGH"
+    }
+  },
+  {
+    "transaction_id": "TXN_024",
+    "timestamp": "2026-08-10T12:50:00Z",
+    "user_request": {
+      "raw_text": "Order a same-week birthday gift with delivery at most 1 day.",
+      "timestamp": "2026-08-10T12:50:00Z",
+      "explicit_constraints": {
+        "delivery_days": 1,
+        "delivery_days_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "delivery_days": 1,
+        "delivery_days_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "delivery_days"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "GIF_024",
+      "title": "Premium Gift Basket",
+      "seller": "GiftExpress",
+      "seller_at_checkout": "GiftExpress",
+      "price": 89.0,
+      "price_at_checkout": 89.0,
+      "delivery_days": 1,
+      "delivery_days_actual": 4,
+      "specs": {
+        "personalization": "yes"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "GIF_024",
+      "purchased_price": 89.0,
+      "purchased_delivery_days": 1,
+      "validation_steps_performed": [
+        "delivery_days"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "delivery_days",
+      "user_claim": "The order was eligible for one-day delivery when purchased, but a regional carrier delay caused a four-day arrival.",
+      "dispute_timestamp": "2026-08-15T10:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "EXTERNAL_CHANGE",
+      "contributing_factors": [],
+      "preventability": "LOW"
+    }
+  },
+  {
+    "transaction_id": "TXN_025",
+    "timestamp": "2026-08-10T13:45:00Z",
+    "user_request": {
+      "raw_text": "Buy a mechanical keyboard in White for under $120.",
+      "timestamp": "2026-08-10T13:45:00Z",
+      "explicit_constraints": {
+        "color": "White",
+        "price_usd": 120.0,
+        "price_usd_operator": "under"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "color": "White",
+        "price_usd": 120.0,
+        "price_usd_operator": "under"
+      },
+      "accessed_constraint_keys": [
+        "color",
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "KEY_025",
+      "title": "White Mechanical Keyboard",
+      "seller": "KeyStore",
+      "seller_at_checkout": "KeyStore",
+      "price": 99.0,
+      "price_at_checkout": 99.0,
+      "color": "White",
+      "color_actual": "White",
+      "specs": {
+        "switch_type": "Brown",
+        "hot_swap": true
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "KEY_025",
+      "purchased_price": 99.0,
+      "purchased_seller": "KeyStore",
+      "validation_steps_performed": [
+        "color",
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "color",
+      "user_claim": "I changed my mind after purchase and now prefer Black.",
+      "post_purchase_preference": "Black",
+      "dispute_timestamp": "2026-08-11T16:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "USER_POST_PURCHASE_CHANGE",
+      "contributing_factors": [],
+      "preventability": "N/A"
+    }
+  },
+  {
+    "transaction_id": "TXN_026",
+    "timestamp": "2026-08-10T14:50:00Z",
+    "user_request": {
+      "raw_text": "Buy a tablet with at least 8GB RAM and at most $700.",
+      "timestamp": "2026-08-10T14:50:00Z",
+      "explicit_constraints": {
+        "ram_gb": 8.0,
+        "ram_gb_operator": "minimum",
+        "price_usd": 700.0,
+        "price_usd_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "ram_gb": 8.0,
+        "ram_gb_operator": "minimum",
+        "price_usd": 700.0,
+        "price_usd_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "ram_gb",
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "TAB_026",
+      "title": "Pro Tablet 8GB / 256GB",
+      "seller": "TabletWorld",
+      "seller_at_checkout": "TabletWorld",
+      "price": 649.0,
+      "price_at_checkout": 649.0,
+      "ram_gb": 8.0,
+      "ram_gb_actual": 4.0,
+      "storage_gb": 256,
+      "storage_gb_actual": 256,
+      "specs": {
+        "display": "OLED",
+        "pen_support": true
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "TAB_026",
+      "purchased_price": 649.0,
+      "purchased_ram_gb": 8.0,
+      "purchased_seller": "TabletWorld",
+      "validation_steps_performed": [
+        "ram_gb",
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "ram_gb",
+      "user_claim": "The listing reported 8GB and the agent recorded a RAM validation, but the delivered device has 4GB.",
+      "dispute_timestamp": "2026-08-11T17:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "MERCHANT_DATA_ERROR",
+      "contributing_factors": [],
+      "preventability": "HIGH"
+    }
+  },
+  {
+    "transaction_id": "TXN_027",
+    "timestamp": "2026-08-10T15:45:00Z",
+    "user_request": {
+      "raw_text": "Order a new mirrorless lens from the manufacturer store for at most $900.",
+      "timestamp": "2026-08-10T15:45:00Z",
+      "explicit_constraints": {
+        "seller": "OfficialStore",
+        "seller_operator": "exactly",
+        "price_usd": 900.0,
+        "price_usd_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "seller": "OfficialStore",
+        "seller_operator": "exactly",
+        "price_usd": 900.0,
+        "price_usd_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "seller",
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "LENS_027",
+      "title": "35mm Prime Lens",
+      "seller": "UsedOptics",
+      "seller_at_checkout": "UsedOptics",
+      "price": 799.0,
+      "price_at_checkout": 799.0,
+      "specs": {
+        "condition": "Used - Excellent",
+        "mount": "E-mount",
+        "aperture": "f/1.4"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "LENS_027",
+      "purchased_price": 799.0,
+      "purchased_seller": "UsedOptics",
+      "validation_steps_performed": [
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "seller",
+      "user_claim": "The budget was met, but the agent purchased through a used-gear reseller instead of the required manufacturer store.",
+      "dispute_timestamp": "2026-08-11T18:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "AGENT_MISJUDGMENT",
+      "contributing_factors": [],
+      "preventability": "HIGH"
+    }
+  },
+  {
+    "transaction_id": "TXN_028",
+    "timestamp": "2026-08-10T16:45:00Z",
+    "user_request": {
+      "raw_text": "Buy a gaming desktop with at least 2TB storage and at most $1800.",
+      "timestamp": "2026-08-10T16:45:00Z",
+      "explicit_constraints": {
+        "storage_gb": 2048,
+        "storage_gb_operator": "minimum",
+        "price_usd": 1800.0,
+        "price_usd_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "storage_gb": 2048,
+        "storage_gb_operator": "minimum",
+        "price_usd": 1800.0,
+        "price_usd_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "storage_gb",
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "PC_028",
+      "title": "Gaming Desktop 1TB SSD",
+      "seller": "GamePC",
+      "seller_at_checkout": "GamePC",
+      "price": 1699.0,
+      "price_at_checkout": 1699.0,
+      "storage_gb": 1024,
+      "storage_gb_actual": 1024,
+      "ram_gb": 32.0,
+      "ram_gb_actual": 32.0,
+      "specs": {
+        "gpu": "RTX 5070",
+        "cpu": "Ryzen 7"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "PC_028",
+      "purchased_price": 1699.0,
+      "purchased_seller": "GamePC",
+      "validation_steps_performed": [
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "storage_gb",
+      "user_claim": "The system was within budget but shipped with 1TB instead of the required minimum 2TB.",
+      "dispute_timestamp": "2026-08-11T19:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "AGENT_MISJUDGMENT",
+      "contributing_factors": [],
+      "preventability": "HIGH"
+    }
+  },
+  {
+    "transaction_id": "TXN_029",
+    "timestamp": "2026-08-10T17:50:00Z",
+    "user_request": {
+      "raw_text": "Buy a desktop PC with at least 2TB storage and 64GB RAM.",
+      "timestamp": "2026-08-10T17:50:00Z",
+      "explicit_constraints": {
+        "storage_gb": 2048,
+        "storage_gb_operator": "minimum",
+        "ram_gb": 64.0,
+        "ram_gb_operator": "minimum"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "storage_gb": 2048,
+        "storage_gb_operator": "minimum",
+        "ram_gb": 64.0,
+        "ram_gb_operator": "minimum"
+      },
+      "accessed_constraint_keys": [
+        "storage_gb",
+        "ram_gb"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "PC_029",
+      "title": "Extreme Workstation PC",
+      "seller": "ProSystems",
+      "seller_at_checkout": "ProSystems",
+      "price": 2999.0,
+      "price_at_checkout": 2999.0,
+      "ram_gb": 64.0,
+      "ram_gb_actual": 64.0,
+      "specs": {
+        "storage": "not captured",
+        "cpu": "Threadripper"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "PC_029",
+      "purchased_price": 2999.0,
+      "purchased_ram_gb": 64.0,
+      "validation_steps_performed": [
+        "ram_gb"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "storage_gb",
+      "user_claim": "The captured transaction has no storage capacity field, so the record cannot establish whether the 2TB requirement was met.",
+      "dispute_timestamp": "2026-08-11T20:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "INSUFFICIENT_EVIDENCE",
+      "contributing_factors": [],
+      "preventability": "N/A"
+    }
+  },
+  {
+    "transaction_id": "TXN_030",
+    "timestamp": "2026-08-10T18:50:00Z",
+    "user_request": {
+      "raw_text": "Order premium wireless earbuds with at least 12GB RAM-equivalent onboard memory representation and at most $150.",
+      "timestamp": "2026-08-10T18:50:00Z",
+      "explicit_constraints": {
+        "ram_gb": 12.0,
+        "ram_gb_operator": "minimum",
+        "price_usd": 150.0,
+        "price_usd_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "ram_gb": 12.0,
+        "ram_gb_operator": "minimum",
+        "price_usd": 150.0,
+        "price_usd_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "ram_gb",
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "EAR_030",
+      "title": "Premium ANC Wireless Earbuds 8GB",
+      "seller": "AudioStore",
+      "seller_at_checkout": "AudioStore",
+      "price": 129.99,
+      "price_at_checkout": 129.99,
+      "ram_gb": 8.0,
+      "ram_gb_actual": 8.0,
+      "specs": {
+        "anc": "yes",
+        "battery_hours": 32
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "EAR_030",
+      "purchased_price": 129.99,
+      "purchased_ram_gb": 8.0,
+      "purchased_seller": "AudioStore",
+      "validation_steps_performed": [
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "ram_gb",
+      "user_claim": "The transaction stayed within budget, but the recorded product state has 8GB instead of the required minimum 12GB.",
+      "dispute_timestamp": "2026-08-11T21:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "AGENT_MISJUDGMENT",
+      "contributing_factors": [],
+      "preventability": "HIGH"
+    }
+  }
+]

@@ -1,0 +1,1192 @@
+[
+  {
+    "transaction_id": "TXN_001",
+    "timestamp": "2026-08-01T09:55:00Z",
+    "user_request": {
+      "raw_text": "Find me a premium Android phone under $700 with at least 12GB RAM. It can be any color.",
+      "timestamp": "2026-08-01T09:55:00Z",
+      "explicit_constraints": {
+        "price_usd": 700.0,
+        "price_usd_operator": "at most",
+        "ram_gb": 12.0,
+        "ram_gb_operator": "minimum"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "price_usd": 700.0,
+        "price_usd_operator": "at most",
+        "ram_gb": 12.0,
+        "ram_gb_operator": "minimum"
+      },
+      "accessed_constraint_keys": [
+        "price_usd",
+        "ram_gb"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "PHO_001",
+      "title": "Nova X12 12GB / 256GB - Open Box",
+      "seller": "OfficialStore",
+      "seller_at_checkout": "OfficialStore",
+      "price": 649.0,
+      "price_at_checkout": 649.0,
+      "ram_gb": 12.0,
+      "ram_gb_actual": 12.0,
+      "storage_gb": 256,
+      "storage_gb_actual": 256,
+      "specs": {
+        "condition": "Open Box",
+        "network": "5G",
+        "color": "Graphite"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "PHO_001",
+      "purchased_price": 649.0,
+      "purchased_ram_gb": 12.0,
+      "purchased_seller": "OfficialStore",
+      "purchased_delivery_days": 3,
+      "validation_steps_performed": [
+        "price",
+        "ram_gb"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "condition",
+      "user_claim": "I expected a brand-new phone, not an open-box unit.",
+      "dispute_timestamp": "2026-08-02T12:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "USER_AMBIGUITY",
+      "contributing_factors": [],
+      "preventability": "N/A"
+    }
+  },
+  {
+    "transaction_id": "TXN_002",
+    "timestamp": "2026-08-01T10:50:00Z",
+    "user_request": {
+      "raw_text": "I need a business laptop under $1200, at least 16GB RAM, from the manufacturer store.",
+      "timestamp": "2026-08-01T10:50:00Z",
+      "explicit_constraints": {
+        "price_usd": 1200.0,
+        "price_usd_operator": "at most",
+        "ram_gb": 16.0,
+        "ram_gb_operator": "minimum",
+        "seller": "OfficialStore",
+        "seller_operator": "exactly"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "price_usd": 1200.0,
+        "price_usd_operator": "at most",
+        "ram_gb": 16.0,
+        "ram_gb_operator": "minimum",
+        "seller": "OfficialStore",
+        "seller_operator": "exactly"
+      },
+      "accessed_constraint_keys": [
+        "price_usd",
+        "ram_gb",
+        "seller"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "LAP_002",
+      "title": "ProBook 14 - 8GB / 512GB",
+      "seller": "OfficialStore",
+      "seller_at_checkout": "OfficialStore",
+      "price": 1149.0,
+      "price_at_checkout": 1149.0,
+      "ram_gb": 8.0,
+      "ram_gb_actual": 8.0,
+      "storage_gb": 512,
+      "storage_gb_actual": 512,
+      "delivery_days": 3,
+      "delivery_days_actual": 3,
+      "specs": {
+        "cpu": "Core Ultra 5",
+        "color": "Silver"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "LAP_002",
+      "purchased_price": 1149.0,
+      "purchased_ram_gb": 8.0,
+      "purchased_seller": "OfficialStore",
+      "purchased_delivery_days": 3,
+      "validation_steps_performed": [
+        "price",
+        "seller"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "ram_gb",
+      "user_claim": "The laptop has 8GB, but the recorded request required at least 16GB.",
+      "dispute_timestamp": "2026-08-02T14:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "AGENT_MISJUDGMENT",
+      "contributing_factors": [],
+      "preventability": "HIGH"
+    }
+  },
+  {
+    "transaction_id": "TXN_003",
+    "timestamp": "2026-08-01T11:55:00Z",
+    "user_request": {
+      "raw_text": "Order a 27-inch 4K monitor for no more than $450.",
+      "timestamp": "2026-08-01T11:55:00Z",
+      "explicit_constraints": {
+        "price_usd": 450.0,
+        "price_usd_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "price_usd": 450.0,
+        "price_usd_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "MON_003",
+      "title": "27-inch 4K IPS Monitor",
+      "seller": "DisplayHub",
+      "seller_at_checkout": "DisplayHub",
+      "price": 399.0,
+      "price_at_checkout": 429.0,
+      "ram_gb": 0.0,
+      "delivery_days": 2,
+      "delivery_days_actual": 2,
+      "specs": {
+        "panel": "IPS",
+        "refresh_rate": "144Hz",
+        "hdr": "HDR400"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "MON_003",
+      "purchased_price": 429.0,
+      "purchased_delivery_days": 2,
+      "validation_steps_performed": [
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "price",
+      "user_claim": "The product page showed $399 but the checkout charged $429. The final price was still within my limit.",
+      "dispute_timestamp": "2026-08-02T15:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "MERCHANT_DATA_ERROR",
+      "contributing_factors": [],
+      "preventability": "HIGH"
+    }
+  },
+  {
+    "transaction_id": "TXN_004",
+    "timestamp": "2026-08-01T12:50:00Z",
+    "user_request": {
+      "raw_text": "Buy an espresso machine that will arrive within 2 days; it is for a weekend event.",
+      "timestamp": "2026-08-01T12:50:00Z",
+      "explicit_constraints": {
+        "delivery_days": 2,
+        "delivery_days_operator": "at most",
+        "price_usd": 800.0,
+        "price_usd_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "delivery_days": 2,
+        "delivery_days_operator": "at most",
+        "price_usd": 800.0,
+        "price_usd_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "delivery_days",
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "KIT_004",
+      "title": "Barista Pro Espresso Machine",
+      "seller": "KitchenMart",
+      "seller_at_checkout": "KitchenMart",
+      "price": 699.0,
+      "price_at_checkout": 699.0,
+      "delivery_days": 1,
+      "delivery_days_actual": 6,
+      "specs": {
+        "voltage": "220V",
+        "warranty": "2 years"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "KIT_004",
+      "purchased_price": 699.0,
+      "purchased_delivery_days": 1,
+      "validation_steps_performed": [
+        "delivery_days",
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "delivery_days",
+      "user_claim": "The promise at purchase was one day, but the package arrived six days later after carrier delays.",
+      "dispute_timestamp": "2026-08-07T10:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "EXTERNAL_CHANGE",
+      "contributing_factors": [],
+      "preventability": "LOW"
+    }
+  },
+  {
+    "transaction_id": "TXN_005",
+    "timestamp": "2026-08-01T13:45:00Z",
+    "user_request": {
+      "raw_text": "Buy a 14-inch MacBook Pro in Silver, under $2200, with at least 16GB RAM.",
+      "timestamp": "2026-08-01T13:45:00Z",
+      "explicit_constraints": {
+        "price_usd": 2200.0,
+        "price_usd_operator": "at most",
+        "ram_gb": 16.0,
+        "ram_gb_operator": "minimum",
+        "color": "Silver"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "price_usd": 2200.0,
+        "price_usd_operator": "at most",
+        "ram_gb": 16.0,
+        "ram_gb_operator": "minimum",
+        "color": "Silver"
+      },
+      "accessed_constraint_keys": [
+        "price_usd",
+        "ram_gb",
+        "color"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "MAC_005",
+      "title": "MacBook Pro 14 Silver 16GB",
+      "seller": "AppleStore",
+      "seller_at_checkout": "AppleStore",
+      "price": 2099.0,
+      "price_at_checkout": 2099.0,
+      "ram_gb": 16.0,
+      "ram_gb_actual": 16.0,
+      "storage_gb": 512,
+      "storage_gb_actual": 512,
+      "color": "Silver",
+      "color_actual": "Silver",
+      "specs": {
+        "chip": "M4",
+        "condition": "New"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "MAC_005",
+      "purchased_price": 2099.0,
+      "purchased_ram_gb": 16.0,
+      "purchased_seller": "AppleStore",
+      "purchased_delivery_days": 2,
+      "validation_steps_performed": [
+        "price",
+        "ram_gb",
+        "color"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "color",
+      "user_claim": "After placing the order I decided I would rather have Space Black.",
+      "post_purchase_preference": "Space Black",
+      "dispute_timestamp": "2026-08-02T16:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "USER_POST_PURCHASE_CHANGE",
+      "contributing_factors": [],
+      "preventability": "N/A"
+    }
+  },
+  {
+    "transaction_id": "TXN_006",
+    "timestamp": "2026-08-01T14:50:00Z",
+    "user_request": {
+      "raw_text": "Purchase a mirrorless camera from the brand store, with at least 24MP and under $1000.",
+      "timestamp": "2026-08-01T14:50:00Z",
+      "explicit_constraints": {
+        "seller": "OfficialStore",
+        "seller_operator": "exactly",
+        "price_usd": 1000.0,
+        "price_usd_operator": "at most",
+        "storage_gb": 128,
+        "storage_gb_operator": "minimum"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "seller": "OfficialStore",
+        "seller_operator": "exactly",
+        "price_usd": 1000.0,
+        "price_usd_operator": "at most",
+        "storage_gb": 128,
+        "storage_gb_operator": "minimum"
+      },
+      "accessed_constraint_keys": [
+        "seller",
+        "price_usd",
+        "storage_gb"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "CAM_006",
+      "title": "Mirrorless Camera 24MP 128GB",
+      "seller": "MarketplacePhoto",
+      "seller_at_checkout": "MarketplacePhoto",
+      "price": 899.0,
+      "price_at_checkout": 899.0,
+      "storage_gb": 128,
+      "storage_gb_actual": 128,
+      "specs": {
+        "megapixels": 24,
+        "condition": "New"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "CAM_006",
+      "purchased_price": 899.0,
+      "purchased_seller": "MarketplacePhoto",
+      "validation_steps_performed": [
+        "price",
+        "storage_gb"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "seller",
+      "user_claim": "The request required the brand store, but the transaction went to a marketplace reseller.",
+      "dispute_timestamp": "2026-08-02T17:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "AGENT_MISJUDGMENT",
+      "contributing_factors": [],
+      "preventability": "HIGH"
+    }
+  },
+  {
+    "transaction_id": "TXN_007",
+    "timestamp": "2026-08-01T15:45:00Z",
+    "user_request": {
+      "raw_text": "Buy a work desktop with at least 1TB SSD and stay under $1600.",
+      "timestamp": "2026-08-01T15:45:00Z",
+      "explicit_constraints": {
+        "storage_gb": 1024,
+        "storage_gb_operator": "minimum",
+        "price_usd": 1600.0,
+        "price_usd_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "storage_gb": 1024,
+        "storage_gb_operator": "minimum",
+        "price_usd": 1600.0,
+        "price_usd_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "storage_gb",
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "DESK_007",
+      "title": "Creator Desktop 1TB SSD",
+      "seller": "WorkstationDirect",
+      "seller_at_checkout": "WorkstationDirect",
+      "price": 1399.0,
+      "price_at_checkout": 1399.0,
+      "storage_gb": 1024,
+      "storage_gb_actual": 512,
+      "ram_gb": 32.0,
+      "ram_gb_actual": 32.0,
+      "specs": {
+        "cpu": "Ryzen 9",
+        "condition": "New"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "DESK_007",
+      "purchased_price": 1399.0,
+      "purchased_ram_gb": 32.0,
+      "validation_steps_performed": [
+        "storage_gb",
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "storage_gb",
+      "user_claim": "The listing and validation log both show 1TB, but the delivered machine contains a 512GB drive.",
+      "dispute_timestamp": "2026-08-05T10:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "MERCHANT_DATA_ERROR",
+      "contributing_factors": [],
+      "preventability": "HIGH"
+    }
+  },
+  {
+    "transaction_id": "TXN_008",
+    "timestamp": "2026-08-01T16:50:00Z",
+    "user_request": {
+      "raw_text": "Buy a 55-inch 4K television for at most $500.",
+      "timestamp": "2026-08-01T16:50:00Z",
+      "explicit_constraints": {
+        "price_usd": 500.0,
+        "price_usd_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "price_usd": 500.0,
+        "price_usd_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "TV_008",
+      "title": "55-inch 4K Smart TV",
+      "seller": "HomeElectronics",
+      "seller_at_checkout": "HomeElectronics",
+      "price": 500.0,
+      "price_at_checkout": 500.0,
+      "delivery_days": 3,
+      "delivery_days_actual": 3,
+      "specs": {
+        "panel": "QLED",
+        "hdr": "Dolby Vision"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "TV_008",
+      "purchased_price": 500.0,
+      "purchased_seller": "HomeElectronics",
+      "purchased_delivery_days": 3,
+      "validation_steps_performed": [
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "price",
+      "user_claim": "The purchase was disputed even though the recorded budget was not exceeded.",
+      "dispute_timestamp": "2026-08-02T18:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "NO_FAULT_DETECTED",
+      "contributing_factors": [],
+      "preventability": "N/A"
+    }
+  },
+  {
+    "transaction_id": "TXN_009",
+    "timestamp": "2026-08-01T17:50:00Z",
+    "user_request": {
+      "raw_text": "Buy a mechanical keyboard for office use. I did not specify a switch type.",
+      "timestamp": "2026-08-01T17:50:00Z",
+      "explicit_constraints": {}
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {},
+      "accessed_constraint_keys": []
+    },
+    "merchant_snapshot": {
+      "item_id": "KEY_009",
+      "title": "Wireless Mechanical Keyboard - Blue Switches",
+      "seller": "KeyLab",
+      "seller_at_checkout": "KeyLab",
+      "price": 109.0,
+      "price_at_checkout": 109.0,
+      "specs": {
+        "switch_type": "Blue",
+        "layout": "US",
+        "connection": "Bluetooth"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "KEY_009",
+      "purchased_price": 109.0,
+      "purchased_seller": "KeyLab",
+      "validation_steps_performed": [
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "switch_type",
+      "user_claim": "I later realized I wanted quiet linear Red switches for the office.",
+      "dispute_timestamp": "2026-08-02T19:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "USER_AMBIGUITY",
+      "contributing_factors": [],
+      "preventability": "N/A"
+    }
+  },
+  {
+    "transaction_id": "TXN_010",
+    "timestamp": "2026-08-01T18:50:00Z",
+    "user_request": {
+      "raw_text": "Order a certified USB-C 240W cable under $30.",
+      "timestamp": "2026-08-01T18:50:00Z",
+      "explicit_constraints": {
+        "price_usd": 30.0,
+        "price_usd_operator": "under"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "price_usd": 30.0,
+        "price_usd_operator": "under"
+      },
+      "accessed_constraint_keys": [
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "CAB_010",
+      "title": "USB-C 240W Braided Cable 2m",
+      "seller": "CableWorks",
+      "seller_at_checkout": "CableWorks",
+      "price": 29.99,
+      "price_at_checkout": 29.99,
+      "delivery_days": 2,
+      "delivery_days_actual": 2,
+      "specs": {
+        "power": "240W",
+        "length": "2m"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "CAB_010",
+      "purchased_price": 29.99,
+      "purchased_seller": "CableWorks",
+      "purchased_delivery_days": 2,
+      "validation_steps_performed": [
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "price",
+      "user_claim": "No recorded purchase condition was violated; the final price was $29.99, below the $30 limit.",
+      "dispute_timestamp": "2026-08-02T20:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "NO_FAULT_DETECTED",
+      "contributing_factors": [],
+      "preventability": "N/A"
+    }
+  },
+  {
+    "transaction_id": "TXN_011",
+    "timestamp": "2026-08-01T19:45:00Z",
+    "user_request": {
+      "raw_text": "Buy a developer laptop with at least 16GB RAM, from the manufacturer store, and at most $1400.",
+      "timestamp": "2026-08-01T19:45:00Z",
+      "explicit_constraints": {
+        "ram_gb": 16.0,
+        "ram_gb_operator": "minimum",
+        "seller": "OfficialStore",
+        "seller_operator": "exactly",
+        "price_usd": 1400.0,
+        "price_usd_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "ram_gb": 16.0,
+        "ram_gb_operator": "minimum",
+        "seller": "OfficialStore",
+        "seller_operator": "exactly",
+        "price_usd": 1400.0,
+        "price_usd_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "ram_gb",
+        "seller",
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "LAP_011",
+      "title": "Developer Laptop 8GB 512GB",
+      "seller": "OfficialStore",
+      "seller_at_checkout": "ThirdPartyStore",
+      "price": 1299.0,
+      "price_at_checkout": 1499.0,
+      "ram_gb": 8.0,
+      "ram_gb_actual": 8.0,
+      "storage_gb": 512,
+      "storage_gb_actual": 512,
+      "specs": {
+        "cpu": "Core Ultra 7",
+        "gpu": "RTX 4060"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "LAP_011",
+      "purchased_price": 1499.0,
+      "purchased_ram_gb": 8.0,
+      "purchased_seller": "ThirdPartyStore",
+      "validation_steps_performed": []
+    },
+    "dispute": {
+      "disputed_field": "ram_gb",
+      "user_claim": "The delivered laptop is under the RAM requirement, the checkout switched sellers, and the final amount exceeded the budget.",
+      "dispute_timestamp": "2026-08-02T21:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "AGENT_MISJUDGMENT",
+      "contributing_factors": [
+        "MERCHANT_DATA_ERROR"
+      ],
+      "preventability": "HIGH"
+    }
+  },
+  {
+    "transaction_id": "TXN_012",
+    "timestamp": "2026-08-01T20:50:00Z",
+    "user_request": {
+      "raw_text": "Order a tablet with at least 16GB RAM and 256GB storage.",
+      "timestamp": "2026-08-01T20:50:00Z",
+      "explicit_constraints": {
+        "ram_gb": 16.0,
+        "ram_gb_operator": "minimum",
+        "storage_gb": 256,
+        "storage_gb_operator": "minimum"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "ram_gb": 16.0,
+        "ram_gb_operator": "minimum",
+        "storage_gb": 256,
+        "storage_gb_operator": "minimum"
+      },
+      "accessed_constraint_keys": [
+        "ram_gb",
+        "storage_gb"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "TAB_012",
+      "title": "Pro Tablet",
+      "seller": "MobileWorld",
+      "seller_at_checkout": "MobileWorld",
+      "price": 699.0,
+      "price_at_checkout": 699.0,
+      "storage_gb": 256,
+      "storage_gb_actual": 256,
+      "specs": {
+        "ram": "unknown",
+        "display": "12.9 inch"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "TAB_012",
+      "purchased_price": 699.0,
+      "validation_steps_performed": [
+        "storage_gb",
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "ram_gb",
+      "user_claim": "The device RAM field was absent from the captured listing and checkout record.",
+      "dispute_timestamp": "2026-08-02T22:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "INSUFFICIENT_EVIDENCE",
+      "contributing_factors": [],
+      "preventability": "N/A"
+    }
+  },
+  {
+    "transaction_id": "TXN_013",
+    "timestamp": "2026-08-01T21:50:00Z",
+    "user_request": {
+      "raw_text": "Buy noise-cancelling headphones under $250, preferably in Black.",
+      "timestamp": "2026-08-01T21:50:00Z",
+      "explicit_constraints": {
+        "price_usd": 250.0,
+        "price_usd_operator": "under",
+        "color": "Black"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "price_usd": 250.0,
+        "price_usd_operator": "under",
+        "color": "Black"
+      },
+      "accessed_constraint_keys": [
+        "price_usd",
+        "color"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "AUD_013",
+      "title": "Studio ANC Headphones Black",
+      "seller": "AudioStore",
+      "seller_at_checkout": "AudioStore",
+      "price": 249.99,
+      "price_at_checkout": 249.99,
+      "specs": {
+        "color": "Black",
+        "anc": "Active",
+        "codec": "LDAC"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "AUD_013",
+      "purchased_price": 249.99,
+      "purchased_seller": "AudioStore",
+      "validation_steps_performed": [
+        "price",
+        "color"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "price",
+      "user_claim": "A duplicate payment flag exists, but the merchandise price remained below the recorded $250 limit.",
+      "dispute_timestamp": "2026-08-02T23:00:00Z"
+    },
+    "duplicate_charge": true,
+    "ground_truth": {
+      "primary_fault": "NO_FAULT_DETECTED",
+      "contributing_factors": [],
+      "preventability": "N/A"
+    }
+  },
+  {
+    "transaction_id": "TXN_014",
+    "timestamp": "2026-08-02T09:50:00Z",
+    "user_request": {
+      "raw_text": "Buy a small NAS for my home office with at least 16TB usable storage and no more than $900.",
+      "timestamp": "2026-08-02T09:50:00Z",
+      "explicit_constraints": {
+        "storage_gb": 16384,
+        "storage_gb_operator": "minimum",
+        "price_usd": 900.0,
+        "price_usd_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "storage_gb": 16384,
+        "storage_gb_operator": "minimum",
+        "price_usd": 900.0,
+        "price_usd_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "storage_gb",
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "NAS_014",
+      "title": "4-Bay NAS with 8TB Installed",
+      "seller": "StoragePro",
+      "seller_at_checkout": "StoragePro",
+      "price": 849.0,
+      "price_at_checkout": 849.0,
+      "storage_gb": 8192,
+      "storage_gb_actual": 8192,
+      "specs": {
+        "drives": "4-bay",
+        "raid": "RAID5 capable"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "NAS_014",
+      "purchased_price": 849.0,
+      "purchased_seller": "StoragePro",
+      "validation_steps_performed": [
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "storage_gb",
+      "user_claim": "I needed at least 16TB, but the recorded purchased configuration has only 8TB.",
+      "dispute_timestamp": "2026-08-03T10:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "AGENT_MISJUDGMENT",
+      "contributing_factors": [],
+      "preventability": "HIGH"
+    }
+  },
+  {
+    "transaction_id": "TXN_015",
+    "timestamp": "2026-08-02T10:45:00Z",
+    "user_request": {
+      "raw_text": "Order a robot vacuum for at most $600 with mapping and mopping support.",
+      "timestamp": "2026-08-02T10:45:00Z",
+      "explicit_constraints": {
+        "price_usd": 600.0,
+        "price_usd_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "price_usd": 600.0,
+        "price_usd_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "VAC_015",
+      "title": "Robot Vacuum Pro",
+      "seller": "CleanHome",
+      "seller_at_checkout": "CleanHome",
+      "price": 499.0,
+      "price_at_checkout": 549.0,
+      "specs": {
+        "mapping": "LiDAR",
+        "mop": "yes",
+        "docking": "self-empty"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "VAC_015",
+      "purchased_price": 549.0,
+      "purchased_seller": "CleanHome",
+      "validation_steps_performed": [
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "price",
+      "user_claim": "The listing showed $499 and checkout showed $549; both amounts were otherwise inside the recorded $600 limit.",
+      "dispute_timestamp": "2026-08-03T11:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "MERCHANT_DATA_ERROR",
+      "contributing_factors": [],
+      "preventability": "HIGH"
+    }
+  },
+  {
+    "transaction_id": "TXN_016",
+    "timestamp": "2026-08-02T11:50:00Z",
+    "user_request": {
+      "raw_text": "Send a birthday gift with delivery in at most 2 days.",
+      "timestamp": "2026-08-02T11:50:00Z",
+      "explicit_constraints": {
+        "delivery_days": 2,
+        "delivery_days_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "delivery_days": 2,
+        "delivery_days_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "delivery_days"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "GIF_016",
+      "title": "Personalized Gift Box",
+      "seller": "GiftExpress",
+      "seller_at_checkout": "GiftExpress",
+      "price": 74.0,
+      "price_at_checkout": 74.0,
+      "delivery_days": 2,
+      "delivery_days_actual": 5,
+      "specs": {
+        "personalization": "yes"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "GIF_016",
+      "purchased_price": 74.0,
+      "purchased_delivery_days": 2,
+      "validation_steps_performed": [
+        "delivery_days"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "delivery_days",
+      "user_claim": "The promised two-day delivery was met at purchase time but the carrier delivered five days later.",
+      "dispute_timestamp": "2026-08-07T12:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "EXTERNAL_CHANGE",
+      "contributing_factors": [],
+      "preventability": "LOW"
+    }
+  },
+  {
+    "transaction_id": "TXN_017",
+    "timestamp": "2026-08-02T12:50:00Z",
+    "user_request": {
+      "raw_text": "Buy an ergonomic office chair in Gray, under $350.",
+      "timestamp": "2026-08-02T12:50:00Z",
+      "explicit_constraints": {
+        "color": "Gray",
+        "price_usd": 350.0,
+        "price_usd_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "color": "Gray",
+        "price_usd": 350.0,
+        "price_usd_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "color",
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "CHA_017",
+      "title": "Ergo Chair Gray",
+      "seller": "OfficeSupply",
+      "seller_at_checkout": "OfficeSupply",
+      "price": 319.0,
+      "price_at_checkout": 319.0,
+      "color": "Gray",
+      "color_actual": "Gray",
+      "specs": {
+        "lumbar": "adjustable"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "CHA_017",
+      "purchased_price": 319.0,
+      "purchased_seller": "OfficeSupply",
+      "validation_steps_performed": [
+        "color",
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "color",
+      "user_claim": "After delivery I decided the Black version would match my office better.",
+      "post_purchase_preference": "Black",
+      "dispute_timestamp": "2026-08-06T10:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "USER_POST_PURCHASE_CHANGE",
+      "contributing_factors": [],
+      "preventability": "N/A"
+    }
+  },
+  {
+    "transaction_id": "TXN_018",
+    "timestamp": "2026-08-02T13:50:00Z",
+    "user_request": {
+      "raw_text": "Find me a quiet air purifier under $250 with automatic mode.",
+      "timestamp": "2026-08-02T13:50:00Z",
+      "explicit_constraints": {
+        "price_usd": 250.0,
+        "price_usd_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "price_usd": 250.0,
+        "price_usd_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "AIR_018",
+      "title": "Compact HEPA Air Purifier 8L",
+      "seller": "HomeAir",
+      "seller_at_checkout": "HomeAir",
+      "price": 219.0,
+      "price_at_checkout": 219.0,
+      "specs": {
+        "noise_db": 33,
+        "auto_mode": true,
+        "coverage_sqft": 350
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "AIR_018",
+      "purchased_price": 219.0,
+      "validation_steps_performed": [
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "coverage_sqft",
+      "user_claim": "I needed coverage for a 600 sq ft room, but the captured request never recorded a coverage requirement.",
+      "dispute_timestamp": "2026-08-03T15:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "USER_AMBIGUITY",
+      "contributing_factors": [],
+      "preventability": "N/A"
+    }
+  },
+  {
+    "transaction_id": "TXN_019",
+    "timestamp": "2026-08-02T14:50:00Z",
+    "user_request": {
+      "raw_text": "Order a replacement laptop charger with arrival within 3 days.",
+      "timestamp": "2026-08-02T14:50:00Z",
+      "explicit_constraints": {
+        "delivery_days": 3,
+        "delivery_days_operator": "at most",
+        "price_usd": 80.0,
+        "price_usd_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "delivery_days": 3,
+        "delivery_days_operator": "at most",
+        "price_usd": 80.0,
+        "price_usd_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "delivery_days",
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "CHG_019",
+      "title": "USB-C 140W Laptop Charger",
+      "seller": "ChargeNow",
+      "seller_at_checkout": "ChargeNow",
+      "price": 69.0,
+      "price_at_checkout": 69.0,
+      "delivery_days": 2,
+      "delivery_days_actual": 8,
+      "specs": {
+        "power": "140W",
+        "compatibility": "USB-C PD"
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "CHG_019",
+      "purchased_price": 69.0,
+      "purchased_delivery_days": 2,
+      "validation_steps_performed": [
+        "delivery_days",
+        "price"
+      ]
+    },
+    "dispute": {
+      "disputed_field": "delivery_days",
+      "user_claim": "It was promised within three days; the courier rerouted it and delivery occurred on day eight.",
+      "dispute_timestamp": "2026-08-10T10:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "EXTERNAL_CHANGE",
+      "contributing_factors": [],
+      "preventability": "LOW"
+    }
+  },
+  {
+    "transaction_id": "TXN_020",
+    "timestamp": "2026-08-02T15:50:00Z",
+    "user_request": {
+      "raw_text": "Buy a creator smartphone with at least 12GB RAM from OfficialStore for at most $800.",
+      "timestamp": "2026-08-02T15:50:00Z",
+      "explicit_constraints": {
+        "ram_gb": 12.0,
+        "ram_gb_operator": "minimum",
+        "seller": "OfficialStore",
+        "seller_operator": "exactly",
+        "price_usd": 800.0,
+        "price_usd_operator": "at most"
+      }
+    },
+    "agent_interpretation": {
+      "parsed_constraints": {
+        "ram_gb": 12.0,
+        "ram_gb_operator": "minimum",
+        "seller": "OfficialStore",
+        "seller_operator": "exactly",
+        "price_usd": 800.0,
+        "price_usd_operator": "at most"
+      },
+      "accessed_constraint_keys": [
+        "ram_gb",
+        "seller",
+        "price_usd"
+      ]
+    },
+    "merchant_snapshot": {
+      "item_id": "PHO_020",
+      "title": "Creator Phone 8GB 256GB",
+      "seller": "OfficialStore",
+      "seller_at_checkout": "ThirdPartyOutlet",
+      "price": 749.0,
+      "price_at_checkout": 829.0,
+      "ram_gb": 8.0,
+      "ram_gb_actual": 8.0,
+      "storage_gb": 256,
+      "storage_gb_actual": 256,
+      "specs": {
+        "camera": "50MP",
+        "5g": true
+      }
+    },
+    "agent_decision": {
+      "selected_item_id": "PHO_020",
+      "purchased_price": 829.0,
+      "purchased_ram_gb": 8.0,
+      "purchased_seller": "ThirdPartyOutlet",
+      "validation_steps_performed": []
+    },
+    "dispute": {
+      "disputed_field": "seller",
+      "user_claim": "The transaction violated the RAM and seller requirements and the checkout amount exceeded the budget.",
+      "dispute_timestamp": "2026-08-03T17:00:00Z"
+    },
+    "duplicate_charge": false,
+    "ground_truth": {
+      "primary_fault": "AGENT_MISJUDGMENT",
+      "contributing_factors": [
+        "MERCHANT_DATA_ERROR"
+      ],
+      "preventability": "HIGH"
+    }
+  }
+]
